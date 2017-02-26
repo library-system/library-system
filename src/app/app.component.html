@@ -1,0 +1,29 @@
+<div class="ui grid stackable">
+  <div class="row">
+    <div class="sixteen wide column">
+      <div class="logo">
+        <div class="logoText">
+          Library System
+        </div>
+        <div class="userMenuButtons">
+          <button class=" ui primary button" [ngClass]="{active: choosenMenuElementFlag == 1}" (click)="navigateToLogin(); setFlagVariable(1)" *ngIf="!authInfo?.isLoggedIn()">Zaloguj się</button>
+          <button class=" ui primary button" [ngClass]="{active: choosenMenuElementFlag == 2}" (click)="navigateToSignup(); setFlagVariable(2)" *ngIf="!authInfo?.isLoggedIn()">Rejestracja</button>
+          <button class=" ui primary button" (click)="logout()" *ngIf="authInfo?.isLoggedIn()">Wyloguj się</button>
+          <button class=" ui primary button" (click)="navigateToProfile()" *ngIf="authInfo?.isLoggedIn()">Profile</button>
+        </div>
+      </div>
+      <div class="ui large menu stackable">
+        <a class="item" routerLink="/home" routerLinkActive="active" [ngClass]="{active: choosenMenuElementFlag == 3}" (click)="setFlagVariable(3)">
+          Strona główna
+        </a>
+        <a class="item"  [ngClass]="{active: choosenMenuElementFlag == 4}" (click)="setFlagVariable(4)">
+          Ksiazki
+        </a>
+        <a class="item" *ngIf="authInfo?.isLoggedIn()" [ngClass]="{active: choosenMenuElementFlag == 5}" (click)="setFlagVariable(5)">
+          Moje wypozyczenia
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet> </router-outlet>

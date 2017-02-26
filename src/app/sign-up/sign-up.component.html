@@ -1,0 +1,30 @@
+<div class="ui centered grid stackable">
+  <div class="column centered row">
+    <div class="five wide column centered">
+      <h1>Rejestracja</h1>
+      <form class="ui form" [formGroup]="form">
+        <div class="field">
+          <label>Email:</label>
+          <input type="text" placeholder="Email" formControlName="email">
+        </div>
+        <div class="field">
+          <label>Hasło:</label>
+          <input type="password" formControlName="password">
+        </div>
+        <div class="field">
+          <label>Imię:</label>
+          <input type="text" placeholder="First Name" formControlName="firstName">
+        </div>
+        <div class="field">
+          <label>Nazwisko:</label>
+          <input type="text" placeholder="Second Name" formControlName="secondName">
+        </div>
+        <div class="field">
+          <label>Index Number:</label>
+          <input type="text" placeholder="Index Number" formControlName="indexNumber">
+        </div>
+        <button class="ui button" (click)="signUp()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

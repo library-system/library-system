@@ -1,0 +1,27 @@
+<div class="ui grid stackable">
+  <div class="row">
+    <div class="ten wide column">
+      <h1>Biblioteka</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan nulla et felis rutrum gravida. Donec eget nisl vel nisl vulputate fringilla. Aliquam erat volutpat. Proin ac convallis neque. Fusce mollis metus tincidunt dui tempor, ac condimentum erat posuere. Morbi ut velit ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor erat urna.
+
+        Nulla vitae consectetur risus, sed varius quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent malesuada ex non risus interdum porta. Etiam blandit dolor ac lobortis pharetra. Nulla egestas a erat non condimentum. Cras nec lacus lobortis elit tincidunt viverra non lobortis dolor. Pellentesque sit amet interdum justo, eu pellentesque quam. Etiam nibh enim, mollis sed libero non, vehicula ultricies ipsum. Fusce pretium urna dolor, non condimentum ipsum semper ac.
+
+        Fusce nec commodo dui. Curabitur congue fermentum lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi eget nulla interdum, tempor est ut, bibendum ex. Vestibulum quis fermentum neque, non imperdiet erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ut fringilla turpis, sit amet aliquam ex. Ut eleifend dapibus maximus. Nunc laoreet tempor neque, consequat hendrerit dui rhoncus at. Mauris a finibus quam. Suspendisse arcu tellus, consectetur vitae ante non, pulvinar vehicula turpis. Duis ac elit mi. Pellentesque et dolor lacinia, mattis mi ut, luctus lectus. Sed eget felis pretium, sagittis leo at, accumsan nunc. Fusce bibendum hendrerit tortor eget lobortis. Aliquam vel turpis sit amet velit consequat feugiat.
+      </p>
+    </div>
+    <div class="six wide column">
+      <h1>Nowe książki w zbiorze:</h1>
+      <p>
+        Lista
+      </p>
+      <ul>
+        <li *ngFor="let person of sample | async">
+          {{person.$value}}
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+</div>
