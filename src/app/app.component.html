@@ -16,8 +16,11 @@
         <a class="item" routerLink="/home" routerLinkActive="active" [ngClass]="{active: choosenMenuElementFlag == 3}" (click)="setFlagVariable(3)">
           Strona główna
         </a>
-        <a class="item"  [ngClass]="{active: choosenMenuElementFlag == 4}" (click)="setFlagVariable(4)">
+        <a class="item" routerLink="/books-list" routerLinkActive="active" [ngClass]="{active: choosenMenuElementFlag == 4}" (click)="setFlagVariable(4)">
           Ksiazki
+        </a>
+        <a class="item" routerLink="/add-book" routerLinkActive="active" [ngClass]="{active: choosenMenuElementFlag == 6}" (click)="setFlagVariable(6)">
+          Dodaj ksiazke
         </a>
         <a class="item" *ngIf="authInfo?.isLoggedIn()" [ngClass]="{active: choosenMenuElementFlag == 5}" (click)="setFlagVariable(5)">
           Moje wypozyczenia

@@ -6,6 +6,8 @@ import { LoginComponent } from '../login/login.component';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import {AuthGuard} from "../shared/security/auth.guard";
+import {BooksListComponent} from "../books-list/books-list.component";
+import {AddBookComponent} from "../add-book/add-book.component";
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login',  component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'user', component: UserProfileComponent }
+  { path: 'user', component: UserProfileComponent },
+  { path: 'books-list', component: BooksListComponent },
+  { path: 'add-book', component: AddBookComponent }
 ];
 
 @NgModule({

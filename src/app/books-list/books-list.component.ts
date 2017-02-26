@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {BooksService} from "../shared/model/books.service";
+import {Book} from "../shared/model/Book";
 
 @Component({
   selector: 'app-books-list',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksListComponent implements OnInit {
 
-  constructor() { }
+  books: Book[];
+
+  constructor(private bl: BooksService,  private route: Router) {
+    this.bl.getAllBooks().subscribe(
+      result => this.books = result
+    );
+  }
 
   ngOnInit() {
   }

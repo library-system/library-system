@@ -15,23 +15,24 @@ import {AuthService} from "./shared/security/auth.service";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {AuthGuard} from "./shared/security/auth.guard";
 import {AuthBackend} from "angularfire2/auth";
-import { ExampleDirective } from './example.directive';
 import { BooksListComponent } from './books-list/books-list.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import {BooksService} from "./shared/model/books.service";
+import {ProfilesService} from "./shared/model/profiles.service";
 
 
 export var config = {
-  apiKey: "AIzaSyAdkEpbA2NtXf4b9XRmrmMF7QbVEzr5C_w",
-  authDomain: "library-system-f1efe.firebaseapp.com",
-  databaseURL: "https://library-system-f1efe.firebaseio.com",
-  storageBucket: "library-system-f1efe.appspot.com",
-  messagingSenderId: "113079028388"
+  apiKey: "AIzaSyBF10UrN-ooE2g0QRve8EclzYsYS3XVPLo",
+  authDomain: "library-system-48e8e.firebaseapp.com",
+  databaseURL: "https://library-system-48e8e.firebaseio.com",
+  storageBucket: "library-system-48e8e.appspot.com",
+  messagingSenderId: "848674810873"
 };
 
 export const authConfig = {
   provder: AuthProviders.Password,
   method: AuthMethods.Password
 }
-
 
 @NgModule({
   declarations: [
@@ -40,8 +41,8 @@ export const authConfig = {
     LoginComponent,
     SignUpComponent,
     UserProfileComponent,
-    ExampleDirective,
-    BooksListComponent
+    BooksListComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,7 @@ export const authConfig = {
     AngularFireModule.initializeApp(config, authConfig)
 
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, BooksService, ProfilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
