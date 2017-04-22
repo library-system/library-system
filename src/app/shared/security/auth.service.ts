@@ -25,20 +25,18 @@ export class AuthService {
     const subject = new Subject<any>();
     promise
       .then(res => {
-          var uuid;
-          this.af.auth.subscribe(auth => uuid = auth.uid);
-          const authInfo = new AuthInfo(uuid);
+          const authInfo = new AuthInfo(this.auth.getAuth().uid);
           this.authInfo$.next(authInfo);
           subject.next(res);
           subject.complete();
         },
         err => {
-        /*
+
           this.authInfo$.error(err);
           subject.error(err);
           subject.complete();
-          */
-        alert('Podane złe dane do logowania');
+
+          alert('Podane złe dane do logowania');
         });
 
     return subject.asObservable();

@@ -16,4 +16,8 @@ export class BooksService {
     return this.af.database.list('books').map(Book.parseFromArray);
   }
 
+  changeCount(key, value) {
+    this.af.database.list('books').update(key, { count: value});
+  }
+
 }

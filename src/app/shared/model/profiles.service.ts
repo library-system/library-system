@@ -8,12 +8,28 @@ export class ProfilesService {
 
   constructor(private af: AngularFire) { }
 
-  getProfileByEmail(uid:string): Observable<Profile> {
+  getProfileByUid(uid:string): Observable<Profile> {
     return this.af.database.list('profiles', {
       query: {
         orderByChild: 'uid',
         equalTo: uid
       }
-    }).map(Profile.parseFromJson);
+    }).first().map(result => Profile.parseFromJson(result[0]));
+  }
+
+  updateProfileAvatar(key, url) {
+    this.af.database.list('profiles').update(key, { avatarUrl : url});
+  }
+
+  updateProfileFirstName(key, firstName) {
+    this.af.database.list('profiles').update(key, { firstName: firstName });
+  }
+
+  updateProfileSecondName(key, secondName) {
+    this.af.database.list('profiles').update(key, { secondName: secondName });
+  }
+
+  updateProfileIndexNumber(key, indexNumber) {
+    this.af.database.list('profile').update(key, { indexNumber: indexNumber });
   }
 }

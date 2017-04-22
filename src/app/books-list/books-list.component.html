@@ -1,5 +1,50 @@
-<ul>
-  <li *ngFor="let book of books">
-    {{book.title}}
-  </li>
-</ul>
+<div class="ui form two column centered grid">
+  <div class="column">
+    <div class="inline fields">
+      <div class="field">
+        <label>Słowo kluczowe:</label>
+        <input type="text" placeholder="Słowo kluczowe">
+      </div>
+      <div class="field">
+        <label>Kategoria:</label>
+        <select class="ui search dropdown">
+          <option value="">Kategoria:</option>
+        </select>
+      </div>
+      <div class="field">
+        <button class="ui button">Szukaj</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let book of books" class="list">
+  <div class="ui equal width grid">
+    <div class="column headerCentered"></div>
+    <div class="column headerCentered"><span class="bookHeader"><b>{{book.title}}</b></span></div>
+    <div class="column headerCentered">
+      <button class="ui button" (click)="expandBook(book.title)">Szczegóły</button>
+      <button class="ui button" (click)="borrowBook(book.isbn, book.count, book.$key)">Wypożycz</button>
+    </div>
+  </div>
+  <div class="expandable" data-title="{{book.title}}">
+    <div class="ui divided items">
+      <div class="item">
+        <div class="image">
+          <img src="{{book.imageUrl}}">
+        </div>
+        <div class="content">
+          <div class="meta">
+            <span class="cinema">Count: {{book.count}}</span>
+          </div>
+          <div class="description">
+            <p>{{book.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+</div>
+
+
+

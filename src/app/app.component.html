@@ -1,7 +1,7 @@
 <div class="ui grid stackable">
   <div class="row">
     <div class="sixteen wide column">
-      <div class="logo">
+      <div class="menuLogo">
         <div class="logoText">
           Library System
         </div>
@@ -9,7 +9,8 @@
           <button class=" ui primary button" [ngClass]="{active: choosenMenuElementFlag == 1}" (click)="navigateToLogin(); setFlagVariable(1)" *ngIf="!authInfo?.isLoggedIn()">Zaloguj się</button>
           <button class=" ui primary button" [ngClass]="{active: choosenMenuElementFlag == 2}" (click)="navigateToSignup(); setFlagVariable(2)" *ngIf="!authInfo?.isLoggedIn()">Rejestracja</button>
           <button class=" ui primary button" (click)="logout()" *ngIf="authInfo?.isLoggedIn()">Wyloguj się</button>
-          <button class=" ui primary button" (click)="navigateToProfile()" *ngIf="authInfo?.isLoggedIn()">Profile</button>
+          <button class=" ui primary button" (click)="navigateToProfile()" *ngIf="authInfo?.isLoggedIn()">Profil</button>
+          <button class=" ui icon button" routerLink="edit-profile" routerLinkActive="active" *ngIf="authInfo?.isLoggedIn()"><i class="setting icon"></i></button>
         </div>
       </div>
       <div class="ui large menu stackable">
@@ -22,7 +23,7 @@
         <a class="item" routerLink="/add-book" routerLinkActive="active" [ngClass]="{active: choosenMenuElementFlag == 6}" (click)="setFlagVariable(6)">
           Dodaj ksiazke
         </a>
-        <a class="item" *ngIf="authInfo?.isLoggedIn()" [ngClass]="{active: choosenMenuElementFlag == 5}" (click)="setFlagVariable(5)">
+        <a class="item" routerLink="/borrowed-books" routerLinkActive="active" *ngIf="authInfo?.isLoggedIn()" [ngClass]="{active: choosenMenuElementFlag == 5}" (click)="setFlagVariable(5)">
           Moje wypozyczenia
         </a>
       </div>

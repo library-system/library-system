@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRouteModule } from './app-route/app-route.module';
 import {AngularFireModule, AuthProviders, AuthMethods, FirebaseAuth} from 'angularfire2';
+//import { NgSemanticModule } from "ng-semantic/ng-semantic";
 
 
 import { AppComponent } from './app.component';
@@ -19,6 +20,10 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import {BooksService} from "./shared/model/books.service";
 import {ProfilesService} from "./shared/model/profiles.service";
+import {BorrowedBooksService} from "./shared/model/borrowed-books.service";
+import { BorrowedBooksComponent } from './borrowed-books/borrowed-books.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { CategoriesManagerComponent } from './categories-manager/categories-manager.component';
 
 
 export var config = {
@@ -42,7 +47,10 @@ export const authConfig = {
     SignUpComponent,
     UserProfileComponent,
     BooksListComponent,
-    AddBookComponent
+    AddBookComponent,
+    BorrowedBooksComponent,
+    EditProfileComponent,
+    CategoriesManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +59,8 @@ export const authConfig = {
     AppRouteModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(config, authConfig)
-
   ],
-  providers: [AuthService, AuthGuard, BooksService, ProfilesService],
+  providers: [AuthService, AuthGuard, BooksService, ProfilesService, BorrowedBooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

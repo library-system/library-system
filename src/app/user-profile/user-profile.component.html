@@ -1,14 +1,14 @@
-<div class="ui grid stackable">
+<div class="ui grid stackable" *ngIf="profile">
   <div class="row">
     <div class="four wide column">
       <div class="ui fluid card  ">
-        <a class="image" href="#">
-          <img src="http://semantic-ui.com/images/avatar/large/helen.jpg">
-        </a>
+        <span class="image">
+          <img src="{{profile.avatarUrl}}">
+        </span>
         <div class="content">
-          <a class="header" href="#">Steve Jobes</a>
+          <span class="header">{{profile.firstName}} {{profile.secondName}}</span>
           <div class="meta">
-            <a>Last Seen 2 days ago</a>
+            <span>Last Seen 2 days ago</span>
           </div>
         </div>
       </div>
@@ -16,12 +16,12 @@
     <div class="twelve wide column ">
       <div class="ui card fluid sizee">
         <div class="content">
-          <div class="header">Cute Dog</div>
+          <div class="header">O mnie:</div>
           <ul>
-            <li>First Name:</li>
-            <li>Last Name: </li>
-            <li>Index Number:</li>
-            <li>Books borrowed:</li>
+            <li>Imię: {{profile.firstName}}</li>
+            <li>Nazwisko: {{profile.secondName}}</li>
+            <li>Index Number: {{profile.indexNumber}}</li>
+            <li>Ulubione kategorie książek:</li>
           </ul>
         </div>
       </div>

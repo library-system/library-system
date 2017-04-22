@@ -8,6 +8,8 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 import {AuthGuard} from "../shared/security/auth.guard";
 import {BooksListComponent} from "../books-list/books-list.component";
 import {AddBookComponent} from "../add-book/add-book.component";
+import {BorrowedBooksComponent} from "../borrowed-books/borrowed-books.component";
+import {EditProfileComponent} from "../edit-profile/edit-profile.component";
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'user', component: UserProfileComponent },
   { path: 'books-list', component: BooksListComponent },
-  { path: 'add-book', component: AddBookComponent }
+  { path: 'add-book', component: AddBookComponent },
+  { path: 'borrowed-books', component: BorrowedBooksComponent},
+  { path: 'edit-profile', component: EditProfileComponent}
 ];
 
 @NgModule({
@@ -25,3 +29,4 @@ const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRouteModule {}
+

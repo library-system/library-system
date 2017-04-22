@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   sample: FirebaseListObservable<any[]>;
 
   constructor(private af: AngularFire) {
-    this.sample = this.af.database.list('/sample');
+
   }
 
   ngOnInit() {

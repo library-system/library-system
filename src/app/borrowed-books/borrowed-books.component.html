@@ -1,0 +1,29 @@
+<div *ngIf="books">
+  <div *ngFor="let book of books" class="list" id="{{book.isbn}}">
+    <div class="ui equal width grid">
+      <div class="column headerCentered"></div>
+      <div class="column headerCentered"><span class="bookHeader"><b>{{book.title}}</b></span></div>
+      <div class="column headerCentered">
+        <button class="ui button" (click)="expandBook(book.title)">Szczegóły</button>
+        <button class="ui button" (click)="returnBook(book); hideBook(book.isbn)">Oddaj</button>
+      </div>
+    </div>
+    <div class="expandable" data-title="{{book.title}}">
+      <div class="ui divided items">
+        <div class="item">
+          <div class="image">
+            <img src="{{book.imageUrl}}">
+          </div>
+          <div class="content">
+            <div class="description">
+              <p>{{book.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+  </div>
+</div>
+
+

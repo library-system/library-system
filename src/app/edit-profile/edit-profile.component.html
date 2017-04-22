@@ -1,0 +1,43 @@
+<form [formGroup]="form" class="ui form">
+  <div class="ui two column centered grid">
+    <div class="column centered row">
+      <div class="six wide column">
+        <div class="field">
+          <label>Imię:</label>
+          <input type="text" placeholder="Imię" formControlName="name">
+        </div>
+      </div>
+    </div>
+    <div class="column centered row">
+      <div class="six wide column">
+        <div class="field">
+          <label>Nazwisko:</label>
+          <input type="text" placeholder="Nazwisko" formControlName="secondName">
+        </div>
+      </div>
+    </div>
+    <div class="column centered row">
+      <div class="six wide column">
+        <div class="field">
+          <label>Numer indeksu:</label>
+          <input type="text" placeholder="Numer indeksu" formControlName="indexNumber">
+        </div>
+      </div>
+    </div>
+    <div class="column centered row">
+      <div class="six wide column">
+        <div class="field">
+          <label>Dodaj okładkę</label>
+          <input name="file" type="file" (change)="onChange($event)"/>
+        </div>
+      </div>
+    </div>
+    <div class="column centered row">
+      <div class="six wide column">
+        <div class="field">
+          <button class="ui button" type="submit" (click)="updateProfile()">Aktualizuj</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

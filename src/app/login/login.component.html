@@ -1,18 +1,26 @@
-<div class="ui centered grid stackable">
-  <div class="column centered row">
-    <div class="four wide column centered">
-      <h1>Logowanie:</h1>
-      <form class="ui form" [formGroup]="form">
+<form class="ui form" [formGroup]="form">
+  <div class="ui centered grid stackable">
+    <div class="column centered row">
+      <div class="six wide column centered">
+        <h1>Logowanie:</h1>
         <div class="field">
           <label>E-mail:</label>
           <input type="text" name="email" placeholder="E-mail" formControlName="email">
         </div>
+      </div>
+    </div>
+    <div class="column centered row">
+      <div class="six wide column centered">
         <div class="field">
           <label>Hasło:</label>
           <input type="password" name="password" formControlName="password">
         </div>
+      </div>
+    </div>
+    <div class="column centered row">
+      <div class="six wide column">
         <button class="ui button" (click)="login()" type="submit">Submit</button>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</form>

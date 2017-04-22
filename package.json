@@ -22,17 +22,19 @@
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
     "angularfire": "^2.2.0",
-    "angularfire2": "^2.0.0-beta.6",
+    "angularfire2": "^2.0.0-beta.7",
     "core-js": "^2.4.1",
     "firebase": "^3.6.4",
+    "jquery": "^3.1.1",
     "rxjs": "^5.0.1",
-    "semantic-ui": "^2.2.7",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "ng-semantic": "https://github.com/vladotesanovic/ngSemantic/tarball/master"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
     "@types/jasmine": "2.5.38",
+    "@types/jquery": "^2.0.41",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.24",
     "codelyzer": "~2.0.0-beta.1",

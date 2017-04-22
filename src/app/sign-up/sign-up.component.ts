@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
 import {AuthService} from "../shared/security/auth.service";
 import {Router} from "@angular/router";
 import {FirebaseListObservable, AngularFire} from "angularfire2";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   profiles: FirebaseListObservable<any>;
+  authSubscriber : Subscription;
 
   constructor(private fb: FormBuilder, private authService:AuthService, private router:Router, private af: AngularFire) {
     this.form = this.fb.group({
@@ -28,6 +30,11 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy(): void {
+    if(this.authSubscriber != null)
+      this.authSubscriber.unsubscribe();
+  }
+
   signUp() {
     const val = this.form.value;
     this.authService.signUp(val.email,val.password).
@@ -35,7 +42,7 @@ export class SignUpComponent implements OnInit {
       () => {
         alert('User created successfully');
         var uid;
-        this.af.auth.subscribe(auth => uid = auth.uid);
+        this.authSubscriber = this.af.auth.subscribe(auth => uid = auth.uid);
         this.createProfileRecord(uid);
         this.router.navigateByUrl('/home');
       },
@@ -49,7 +56,8 @@ export class SignUpComponent implements OnInit {
       email: this.form.value.email,
       firstName: this.form.value.firstName,
       secondName: this.form.value.secondName,
-      indexNumber: this.form.value.indexNumber
+      indexNumber: this.form.value.indexNumber,
+      avatarUrl : ''
     });
   }
 }

@@ -1,0 +1,27 @@
+.list {
+  width:100%;
+  min-height: 70px;
+  position: relative;
+  display: block;
+  float: left;
+  overflow: hidden;
+}
+
+.headerCentered {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.expandable {
+  position: relative;
+  display: none;
+  width:100%;
+  height:100px;
+  margin-top:10px;
+  margin-left:20px;
+}
+.title {
+  margin-left: 10px;
+}
+
+
